@@ -1,0 +1,12 @@
+---
+import { ContactModal } from './ContactModal';
+---
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center p-6">
+  <div class="glass-morphism px-8 py-3 rounded-2xl flex items-center gap-8">
+    <a href="#" class="text-white font-bold hover:text-brand-primary transition-colors">Inicio</a>
+    <a href="#proyectos" class="text-zinc-400 hover:text-white transition-colors">Proyectos</a>
+    <a href="https://www.linkedin.com/in/carlos-andres-ceballos-santos/" target="_blank" class="text-zinc-400 hover:text-white transition-colors">Sobre mí</a>
+    <div class="w-px h-4 bg-white/10 mx-2"></div>
+    <ContactModal triggerStyle="link" client:load />
+  </div>
+</nav>

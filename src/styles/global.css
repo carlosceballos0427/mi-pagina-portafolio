@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #2dd4bf;
+  /* Emerald/Cyan */
+  --color-brand-secondary: #0ea5e9;
+  /* Sky Blue */
+  --color-brand-accent: #f0f9ff;
+  --color-bg-dark: #020617;
+  /* Deeper Midnight */
+  --color-card-dark: #0f172a;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-zinc-100 selection:bg-brand-primary/30;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+.glass-morphism {
+  @apply backdrop-blur-md bg-white/5 border border-white/10;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary;
+}

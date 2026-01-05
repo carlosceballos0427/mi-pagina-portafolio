@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import { ProjectGrid } from '../components/Projects';
+import { projects } from '../data/projects';
+import { Briefcase } from 'lucide-react';
+---
+
+<Layout title="Carlos Andrés Ceballos | Portfolio 2026">
+	<main class="relative">
+		<Nav />
+		<Hero />
+		
+		<section id="proyectos" class="py-24 space-y-16">
+			<div class="text-center space-y-4">
+				<div class="flex justify-center">
+					<div class="p-3 rounded-2xl bg-brand-primary/10 text-brand-primary">
+						<Briefcase size={32} />
+					</div>
+				</div>
+				<h2 class="text-4xl md:text-5xl font-bold">Proyectos Destacados</h2>
+				<p class="text-zinc-400 max-w-xl mx-auto">
+					Una selección de mis trabajos más significativos, desde soluciones de ingeniería hasta innovaciones impulsadas por IA.
+				</p>
+			</div>
+
+			<ProjectGrid projects={projects} client:load />
+		</section>
+
+		<footer class="py-12 border-t border-white/5 text-center text-zinc-500 text-sm">
+			<p>© 2026 Carlos Andrés Ceballos Santos. Construido con Astro, Tailwind & IA.</p>
+		</footer>
+	</main>
+</Layout>

@@ -1,0 +1,37 @@
+---
+import { Github, Linkedin } from 'lucide-react';
+import { ContactModal } from './ContactModal';
+---
+
+<section class="min-h-screen flex flex-col justify-center items-center px-4 pt-20">
+  <div class="max-w-4xl w-full text-center space-y-8">
+    <div class="inline-block px-3 py-1 rounded-full border border-brand-primary/20 bg-brand-primary/5 text-brand-primary text-sm font-medium animate-pulse">
+      Ingeniero Industrial & Desarrollador IA
+    </div>
+    
+    <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
+      Hola, soy <span class="text-gradient">Carlos Andrés</span>
+    </h1>
+    
+    <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+      Especialista en Inteligencia de Negocios y Big Data. Transformo datos complejos en herramientas de decisión estratégicas mediante el uso de inteligencia artificial y optimización de procesos.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 pt-4">
+      <a href="https://www.linkedin.com/in/carlos-andres-ceballos-santos/" target="_blank" class="glass-morphism px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-white/10 transition-all">
+        <Linkedin size={20} />
+        LinkedIn
+      </a>
+      <a href="https://github.com/carlosceballos0427" target="_blank" class="glass-morphism px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-white/10 transition-all">
+        <Github size={20} />
+        GitHub
+      </a>
+      <ContactModal client:load />
+    </div>
+  </div>
+
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand-primary/10 blur-[160px] rounded-full"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-brand-secondary/10 blur-[160px] rounded-full"></div>
+  </div>
+</section>
