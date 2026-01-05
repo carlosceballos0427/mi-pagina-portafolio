@@ -14,7 +14,7 @@ export const ContactModal = ({ triggerStyle = 'button' }: { triggerStyle?: 'butt
         const formData = new FormData(form);
 
         try {
-            const response = await fetch('https://formspree.io/f/mqaeewne', {
+            const response = await fetch('https://formspree.io/f/mlgdkdqy', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -102,7 +102,7 @@ export const ContactModal = ({ triggerStyle = 'button' }: { triggerStyle?: 'butt
                                     <p className="text-zinc-400">Te responderé lo antes posible.</p>
                                 </motion.div>
                             ) : (
-                                <form onSubmit={handleSubmit} action="https://formspree.io/f/mqaeewne" method="POST" className="space-y-6">
+                                <form onSubmit={handleSubmit} action="https://formspree.io/f/mlgdkdqy" method="POST" className="space-y-6">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-zinc-300 flex items-center gap-2">
                                             <User size={16} /> Nombre
