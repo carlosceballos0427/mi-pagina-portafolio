@@ -37,7 +37,7 @@ export const projects: Project[] = [
     description: "Aplicación pionera para la gestión de servicios veterinarios. Enfocada en la automatización de procesos clínicos y administrativos.",
     year: 2022,
     tech: [".NET Core", "C#", "SQL Server", "Bootstrap"],
-    link: "https://github.com/carlosceballos0427/Mascota feliz",
+    link: "https://github.com/carlosceballos0427/MascotaFelizAPP",
     type: "2022"
   }
 ];
