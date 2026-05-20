@@ -3,36 +3,121 @@ import { Github, Linkedin } from 'lucide-react';
 import { ContactModal } from './ContactModal';
 ---
 
-<section class="min-h-screen flex flex-col justify-center items-center px-4 pt-24 md:pt-20 pb-8">
-  <div class="max-w-4xl w-full text-center space-y-6 md:space-y-8">
-    <div class="inline-block px-3 py-1 rounded-full border border-brand-primary/20 bg-brand-primary/5 text-brand-primary text-xs md:text-sm font-medium animate-pulse">
-      Ingeniero Industrial & Desarrollador IA
+<section class="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center items-center px-4 pt-28 pb-12 overflow-hidden">
+  
+  <!-- Aurora Glow Background Elements -->
+  <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+    <!-- Glowing blobs -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] bg-brand-primary/15 blur-[100px] sm:blur-[150px] rounded-full animate-slow-spin"></div>
+    <div class="absolute bottom-1/4 left-1/3 -translate-x-1/2 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-brand-secondary/15 blur-[100px] sm:blur-[150px] rounded-full animate-slow-spin" style="animation-delay: -7s;"></div>
+    <div class="absolute top-1/3 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-brand-tertiary/10 blur-[80px] sm:blur-[120px] rounded-full animate-slow-spin" style="animation-delay: -14s;"></div>
+  </div>
+
+  <div class="max-w-4xl w-full text-center space-y-8 relative z-10">
+    <!-- Header Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(6,182,212,0.15)] animate-pulse">
+      <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
+      <span class="text-xs md:text-sm font-medium tracking-wide text-zinc-300">
+        Disponible para proyectos de alto impacto
+      </span>
     </div>
     
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
-      Hola, soy <span class="text-gradient">Carlos Andrés</span>
-    </h1>
+    <!-- Title -->
+    <div class="space-y-4">
+      <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-none font-heading">
+        <span class="block text-white">Hola, soy</span>
+        <span class="block mt-2 animated-gradient-text">Carlos Andrés</span>
+      </h1>
+      
+      <!-- Rotating Subtitle -->
+      <div class="h-8 md:h-12 overflow-hidden flex justify-center items-center">
+        <div id="rotating-text" class="transition-all duration-500 transform translate-y-0 text-lg md:text-2xl font-bold text-zinc-400">
+          Ingeniero Industrial
+        </div>
+      </div>
+    </div>
     
-    <p class="text-base md:text-lg lg:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed px-2">
-      Especialista en Inteligencia de Negocios y Big Data. Transformo datos complejos en herramientas de decisión estratégicas mediante el uso de inteligencia artificial y optimización de procesos.
+    <!-- Paragraph Description -->
+    <p class="text-sm sm:text-base md:text-lg lg:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4">
+      Especialista en <strong class="text-zinc-200 font-semibold">Inteligencia de Negocios (BI) y Big Data</strong>. Fusiono la optimización operativa con analítica avanzada de datos y desarrollo de <strong class="text-brand-primary font-semibold">Inteligencia Artificial</strong> para impulsar decisiones de negocio de alto valor.
     </p>
 
-    <!-- Mobile: Stack buttons vertically, Desktop: inline -->
-    <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 pt-4 px-4 sm:px-0">
-      <a href="https://www.linkedin.com/in/carlos-andres-ceballos-santos/" target="_blank" class="glass-morphism px-5 md:px-6 py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-white/10 transition-all text-sm md:text-base">
-        <Linkedin size={18} />
+    <!-- Socials & CTAs -->
+    <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3.5 pt-6 px-4">
+      <a href="https://www.linkedin.com/in/carlos-andres-ceballos-santos/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto glass-morphism glass-morphism-hover px-6 py-3 rounded-xl flex items-center justify-center gap-2 text-zinc-200 text-sm md:text-base font-semibold shadow-lg">
+        <Linkedin size={18} class="text-[#0a66c2]" />
         LinkedIn
       </a>
-      <a href="https://github.com/carlosceballos0427" target="_blank" class="glass-morphism px-5 md:px-6 py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-white/10 transition-all text-sm md:text-base">
-        <Github size={18} />
+      <a href="https://github.com/carlosceballos0427" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto glass-morphism glass-morphism-hover px-6 py-3 rounded-xl flex items-center justify-center gap-2 text-zinc-200 text-sm md:text-base font-semibold shadow-lg">
+        <Github size={18} class="text-white" />
         GitHub
       </a>
-      <ContactModal client:load />
+      <div class="w-full sm:w-auto flex justify-center">
+        <ContactModal client:load />
+      </div>
     </div>
   </div>
 
-  <div class="absolute inset-0 -z-10 overflow-hidden">
-    <div class="absolute top-1/4 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-primary/10 blur-[100px] md:blur-[160px] rounded-full"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-secondary/10 blur-[100px] md:blur-[160px] rounded-full"></div>
+  <!-- Mouse Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce pointer-events-none opacity-55">
+    <div class="w-6 h-10 rounded-full border-2 border-zinc-500 flex justify-center p-1.5">
+      <div class="w-1 h-2 rounded-full bg-zinc-500 animate-scroll"></div>
+    </div>
+    <span class="text-[10px] tracking-widest text-zinc-500 uppercase font-medium">Desplazar</span>
   </div>
 </section>
+
+<script>
+  // Simple rotating text logic
+  const roles = [
+    "Ingeniero Industrial",
+    "Especialista en Business Intelligence (BI)",
+    "Desarrollador de Inteligencia Artificial",
+    "Creador de Soluciones a Medida"
+  ];
+  
+  let currentIndex = 0;
+  const element = document.getElementById('rotating-text');
+
+  if (element) {
+    setInterval(() => {
+      // Fade out
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(-15px)';
+
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % roles.length;
+        element.innerText = roles[currentIndex];
+        
+        // Dynamic colors depending on the role
+        if (currentIndex === 0) {
+          element.className = "text-lg md:text-2xl font-bold text-brand-tertiary transition-all duration-500";
+        } else if (currentIndex === 1) {
+          element.className = "text-lg md:text-2xl font-bold text-brand-secondary transition-all duration-500";
+        } else if (currentIndex === 2) {
+          element.className = "text-lg md:text-2xl font-bold text-brand-primary transition-all duration-500";
+        } else {
+          element.className = "text-lg md:text-2xl font-bold text-white transition-all duration-500";
+        }
+
+        // Fade in
+        element.style.transform = 'translateY(15px)';
+        setTimeout(() => {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }, 50);
+      }, 400);
+    }, 3500);
+  }
+</script>
+
+<style>
+  @keyframes scroll {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(6px); opacity: 0.3; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  .animate-scroll {
+    animation: scroll 2s infinite ease-in-out;
+  }
+</style>

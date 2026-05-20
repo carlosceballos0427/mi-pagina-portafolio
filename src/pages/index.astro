@@ -2,35 +2,88 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
+import { BentoGrid } from '../components/BentoGrid';
+import { Experience } from '../components/Experience';
 import { ProjectGrid } from '../components/Projects';
 import { projects } from '../data/projects';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, LayoutGrid, History } from 'lucide-react';
 ---
 
 <Layout title="Carlos Andrés Ceballos | Portfolio 2026">
-	<main class="relative">
+	<main class="relative min-h-screen">
+		<!-- Header/Navigation -->
 		<Nav />
+
+		<!-- Hero Section -->
 		<Hero />
-		
-		<section id="proyectos" class="py-16 md:py-24 space-y-8 md:space-y-16 px-4">
-			<div class="text-center space-y-3 md:space-y-4">
+
+		<!-- Section 1: Interactive Dashboard (Bento Grid) -->
+		<section id="dashboard" class="py-16 md:py-24 space-y-8 px-4 border-t border-white/5 relative">
+			<div class="text-center space-y-3">
 				<div class="flex justify-center">
-					<div class="p-2 md:p-3 rounded-xl md:rounded-2xl bg-brand-primary/10 text-brand-primary">
-						<Briefcase size={24} class="md:hidden" />
-						<Briefcase size={32} class="hidden md:block" />
+					<div class="p-3 rounded-2xl bg-brand-primary/10 text-brand-primary neon-glow-primary">
+						<LayoutGrid size={28} />
 					</div>
 				</div>
-				<h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">Proyectos Destacados</h2>
-				<p class="text-sm md:text-base text-zinc-400 max-w-xl mx-auto px-2">
-					Una selección de mis trabajos más significativos, desde soluciones de ingeniería hasta innovaciones impulsadas por IA.
+				<h2 class="text-3xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
+					Dashboard de Carrera
+				</h2>
+				<p class="text-xs sm:text-sm md:text-base text-zinc-400 max-w-xl mx-auto px-4 leading-relaxed">
+					Una perspectiva consolidada de mis métricas en vivo, arsenal tecnológico y el enfoque híbrido que aplico a mis proyectos.
+				</p>
+			</div>
+
+			<BentoGrid client:load />
+		</section>
+
+		<!-- Section 2: Timeline (Experience) -->
+		<section id="trayectoria" class="py-16 md:py-24 space-y-8 px-4 border-t border-white/5 relative">
+			<!-- Visual background lights -->
+			<div class="absolute inset-y-0 left-0 -z-10 w-96 bg-brand-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+			<div class="text-center space-y-3">
+				<div class="flex justify-center">
+					<div class="p-3 rounded-2xl bg-brand-secondary/10 text-brand-secondary neon-glow-secondary">
+						<History size={28} />
+					</div>
+				</div>
+				<h2 class="text-3xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
+					Trayectoria y Crecimiento
+				</h2>
+				<p class="text-xs sm:text-sm md:text-base text-zinc-400 max-w-xl mx-auto px-4 leading-relaxed">
+					De optimizar plantas industriales a estructurar inteligencia de negocios y programar soluciones impulsadas por inteligencia artificial.
+				</p>
+			</div>
+
+			<Experience client:load />
+		</section>
+
+		<!-- Section 3: Featured Projects -->
+		<section id="proyectos" class="py-16 md:py-24 space-y-8 px-4 border-t border-white/5 relative">
+			<!-- Visual background lights -->
+			<div class="absolute inset-y-0 right-0 -z-10 w-96 bg-brand-tertiary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+			<div class="text-center space-y-3">
+				<div class="flex justify-center">
+					<div class="p-3 rounded-2xl bg-brand-tertiary/10 text-brand-tertiary" style="box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.35);">
+						<Briefcase size={28} />
+					</div>
+				</div>
+				<h2 class="text-3xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
+					Proyectos Destacados
+				</h2>
+				<p class="text-xs sm:text-sm md:text-base text-zinc-400 max-w-xl mx-auto px-4 leading-relaxed">
+					Una recopilación de sistemas productivos reales, desde plataformas SEO en la nube hasta software local y tableros comerciales.
 				</p>
 			</div>
 
 			<ProjectGrid projects={projects} client:load />
 		</section>
 
-		<footer class="py-12 border-t border-white/5 text-center text-zinc-500 text-sm">
-			<p>© 2026 Carlos Andrés Ceballos Santos. Construido con Astro, Tailwind & IA.</p>
+		<!-- Footer -->
+		<footer class="py-16 border-t border-white/5 text-center text-zinc-500 space-y-3 px-4">
+			<p class="text-sm font-semibold tracking-wide text-zinc-400">© 2026 Carlos Andrés Ceballos Santos.</p>
+			<p class="text-xs text-zinc-600">Construido con Astro, React, Tailwind CSS v4 & Framer Motion.</p>
 		</footer>
 	</main>
 </Layout>

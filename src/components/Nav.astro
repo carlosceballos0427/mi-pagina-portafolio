@@ -1,36 +1,48 @@
 ---
 import { ContactModal } from './ContactModal';
 ---
-<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6">
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6 transition-all duration-300" id="navbar">
   <!-- Desktop Navigation -->
-  <div class="hidden md:flex glass-morphism px-8 py-3 rounded-2xl items-center gap-8">
-    <a href="#" class="text-white font-bold hover:text-brand-primary transition-colors">Inicio</a>
-    <a href="#proyectos" class="text-zinc-400 hover:text-white transition-colors">Proyectos</a>
-    <a href="https://www.linkedin.com/in/carlos-andres-ceballos-santos/" target="_blank" class="text-zinc-400 hover:text-white transition-colors">Sobre mí</a>
-    <div class="w-px h-4 bg-white/10 mx-2"></div>
-    <ContactModal triggerStyle="link" client:load />
+  <div class="hidden md:flex glass-morphism px-8 py-3 rounded-2xl items-center gap-8 shadow-2xl border-white/5 relative group">
+    <!-- Glow effect behind navigation -->
+    <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition duration-500"></div>
+    
+    <div class="relative flex items-center gap-8">
+      <a href="#" class="text-white font-bold text-sm tracking-wide font-heading hover:text-brand-primary transition-colors">Carlos C.</a>
+      <div class="w-px h-4 bg-white/10"></div>
+      <a href="#" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Inicio</a>
+      <a href="#dashboard" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Dashboard</a>
+      <a href="#trayectoria" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Trayectoria</a>
+      <a href="#proyectos" class="text-zinc-400 hover:text-white transition-colors text-sm font-medium">Proyectos</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <ContactModal triggerStyle="link" client:load />
+    </div>
   </div>
 
-  <!-- Mobile Navigation -->
-  <div class="md:hidden w-full flex justify-between items-center glass-morphism px-4 py-3 rounded-xl">
-    <a href="#" class="text-white font-bold text-lg">Carlos Andrés</a>
-    <button id="mobile-menu-btn" class="text-white p-2 hover:bg-white/10 rounded-lg transition-colors">
-      <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  <!-- Mobile Navigation Bar -->
+  <div class="md:hidden w-full flex justify-between items-center glass-morphism px-5 py-3.5 rounded-xl shadow-xl border-white/5 relative">
+    <a href="#" class="text-white font-bold text-base tracking-wide font-heading">Carlos C.</a>
+    
+    <button id="mobile-menu-btn" class="text-white p-2 hover:bg-white/10 rounded-lg transition-colors cursor-pointer" aria-label="Toggle Menu">
+      <svg id="menu-icon" class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
-      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      <svg id="close-icon" class="w-5.5 h-5.5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
   </div>
 
   <!-- Mobile Menu Dropdown -->
-  <div id="mobile-menu" class="md:hidden fixed top-20 left-4 right-4 glass-morphism rounded-xl p-4 flex-col gap-4 hidden z-50">
-    <a href="#" class="text-white font-semibold py-2 px-4 rounded-lg hover:bg-white/10 transition-colors block">Inicio</a>
-    <a href="#proyectos" class="text-zinc-400 py-2 px-4 rounded-lg hover:bg-white/10 hover:text-white transition-colors block">Proyectos</a>
-    <a href="https://www.linkedin.com/in/carlos-andres-ceballos-santos/" target="_blank" class="text-zinc-400 py-2 px-4 rounded-lg hover:bg-white/10 hover:text-white transition-colors block">Sobre mí</a>
-    <div class="h-px bg-white/10 my-2"></div>
-    <div class="px-4">
+  <div id="mobile-menu" class="md:hidden fixed top-22 left-4 right-4 glass-morphism rounded-xl p-5 flex-col gap-4 hidden shadow-2xl border-white/5 z-50">
+    <a href="#" class="text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition-colors block text-sm">Inicio</a>
+    <a href="#dashboard" class="text-zinc-400 py-2.5 px-4 rounded-lg hover:bg-white/10 hover:text-white transition-colors block text-sm">Dashboard</a>
+    <a href="#trayectoria" class="text-zinc-400 py-2.5 px-4 rounded-lg hover:bg-white/10 hover:text-white transition-colors block text-sm">Trayectoria</a>
+    <a href="#proyectos" class="text-zinc-400 py-2.5 px-4 rounded-lg hover:bg-white/10 hover:text-white transition-colors block text-sm">Proyectos</a>
+    
+    <div class="h-px bg-white/10 my-1"></div>
+    
+    <div class="px-4 py-2">
       <ContactModal triggerStyle="link" client:load />
     </div>
   </div>
@@ -41,6 +53,7 @@ import { ContactModal } from './ContactModal';
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIcon = document.getElementById('menu-icon');
   const closeIcon = document.getElementById('close-icon');
+  const navbar = document.getElementById('navbar');
 
   menuBtn?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
@@ -57,5 +70,16 @@ import { ContactModal } from './ContactModal';
       menuIcon?.classList.remove('hidden');
       closeIcon?.classList.add('hidden');
     });
+  });
+
+  // Scroll effect to change background opacity
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('backdrop-blur-lg');
+      navbar?.classList.add('bg-bg-dark/40');
+    } else {
+      navbar?.classList.remove('backdrop-blur-lg');
+      navbar?.classList.remove('bg-bg-dark/40');
+    }
   });
 </script>
