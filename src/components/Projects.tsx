@@ -113,7 +113,7 @@ export const ProjectGrid = ({ projects }: { projects: Project[] }) => {
                   </span>
                   
                   <div className="flex items-center gap-1 text-zinc-500 text-xs font-mono">
-                    <Calendar size={13} class="text-zinc-500" />
+                    <Calendar size={13} className="text-zinc-500" />
                     {project.year}
                   </div>
                 </div>
