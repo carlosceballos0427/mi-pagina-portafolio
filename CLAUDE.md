@@ -41,3 +41,10 @@ Todo el código debe quedar documentado en español:
 - Es la carta de presentación profesional del autor: máximo cuidado en diseño,
   ortografía y responsive.
 - Idioma del proyecto: español (respuestas, comentarios y documentación en español).
+
+## Lecciones aprendidas (leer antes de trabajar)
+
+- `LECCIONES.md` (esta app) y `../LECCIONES_GENERALES.md` (todas las apps): lo que
+  ya falló una vez y cómo evitarlo. Aplicarlo de entrada.
+- Al cerrar un incidente o un cambio grande, anotar en `LECCIONES.md` qué pasó,
+  cómo se arregló y qué lo evita la próxima vez.
