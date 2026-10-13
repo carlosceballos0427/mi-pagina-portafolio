@@ -10,7 +10,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "Buscador Inteligente de Contratos (Buscador SECOP)",
-    description: "Plataforma de inteligencia contractual que optimiza la búsqueda de licitaciones y contratos en SECOP I, II y Tienda Virtual del Estado Colombiano. Validador real con +570 clics y 22.1K impresiones en Google Search Console (Posición media 7.4). Integra IA para análisis rápido de términos de referencia.",
+    description: "Plataforma de inteligencia contractual que optimiza la búsqueda de licitaciones y contratos en SECOP I, II y Tienda Virtual del Estado Colombiano. Validado en producción: más de 2.200 clics orgánicos desde Google y más de 100.000 páginas indexadas (Search Console, 2026). Integra IA para análisis rápido de términos de referencia.",
     year: 2026,
     tech: ["Astro", "React", "Python", "Flask", "OpenAI API", "Tailwind CSS", "SEO"],
     link: "https://www.buscadorsecop.com/",
