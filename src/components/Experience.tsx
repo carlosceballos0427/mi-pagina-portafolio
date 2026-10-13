@@ -19,7 +19,7 @@ export const Experience = () => {
       year: "2024 - Presente",
       title: "Ingeniería de Software & Soluciones de IA",
       subtitle: "Desarrollo Freelance & Proyectos Corporativos",
-      description: "Diseño y despliegue de plataformas de alta velocidad e integraciones inteligentes con Modelos de Lenguaje (OpenAI API). Creador de Buscador SECOP (buscadorsecop.com), validado comercialmente con excelente tráfico SEO y posicionamiento orgánico. Desarrollo de automatizaciones y agentes analíticos.",
+      description: "Diseño y despliegue de plataformas de alta velocidad e integraciones inteligentes con Modelos de Lenguaje (OpenAI API). Creador de Buscador SECOP (buscadorsecop.com), más de 5.400 clics y 234.000 impresiones en Google en 12 meses, con posición media 7,1. Desarrollo de automatizaciones y agentes analíticos.",
       skills: ["Astro / React / Django", "OpenAI API", "SEO & Performance", "Vite / Node.js"],
       type: "work",
       color: "border-brand-primary/50 text-brand-primary bg-brand-primary/10",

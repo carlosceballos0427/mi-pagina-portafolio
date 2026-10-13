@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { 
   TrendingUp, BarChart3, Database, Cpu, Globe, 
@@ -7,23 +7,26 @@ import {
 } from 'lucide-react';
 
 export const BentoGrid = () => {
-  const [activeMetric, setActiveMetric] = useState<'clicks' | 'impressions' | 'ctr' | 'pos'>('clicks');
+  // Métricas reales de Buscador SECOP en Google Search Console (últimos 12 meses, captura del 10-oct-2026)
+  const metrics = [
+    { val: "5.46K", label: "Clics Totales", note: "orgánicos", color: "text-cyan-400" },
+    { val: "234K", label: "Impresiones", note: "en Google", color: "text-indigo-400" },
+    { val: "2.3%", label: "CTR Medio", note: "clics / impresiones", color: "text-emerald-400" },
+    { val: "7.1", label: "Posición Media", note: "primera página", color: "text-amber-400" },
+  ];
 
-  // Interactive metrics for Buscador SECOP Search Console widget
-  const metrics = {
-    clicks: { val: "576", label: "Clics Totales", pct: "+18%", color: "text-cyan-400" },
-    impressions: { val: "22.1K", label: "Impresiones", pct: "+45%", color: "text-indigo-400" },
-    ctr: { val: "2.6%", label: "CTR Medio", pct: "Óptimo", color: "text-emerald-400" },
-    pos: { val: "7.4", label: "Posición Media", pct: "Top 10", color: "text-amber-400" },
-  };
-
-  // Mock path coordinates for GSC graph to simulate data visualization
-  const graphPaths = {
-    clicks: "M 0 60 Q 20 50 40 55 T 80 40 T 120 45 T 160 25 T 200 30 T 240 10 T 280 18 T 320 5 T 360 8 L 360 80 L 0 80 Z",
-    impressions: "M 0 55 Q 20 45 40 50 T 80 30 T 120 42 T 160 18 T 200 22 T 240 8 T 280 12 T 320 4 T 360 2 L 360 80 L 0 80 Z",
-    ctr: "M 0 45 Q 20 42 40 40 T 80 35 T 120 38 T 160 30 T 200 32 T 240 25 T 280 28 T 320 22 T 360 20 L 360 80 L 0 80 Z",
-    pos: "M 0 10 Q 20 15 40 12 T 80 20 T 120 18 T 160 28 T 200 25 T 240 32 T 280 35 T 320 45 T 360 42 L 360 80 L 0 80 Z"
-  };
+  // Curva de clics diarios (18-feb a 10-oct-2026) trazada de la gráfica real de Search Console.
+  // Cada par es [x, fracción del pico]: x va de 0 a 360 (ancho del SVG); 1 = día pico (17-ago).
+  const clicksCurve: Array<[number, number]> = [
+    [0, 0], [40, 0.01], [70, 0.04], [100, 0.07], [130, 0.06], [160, 0.1], [190, 0.09], [215, 0.12],
+    [235, 0.17], [250, 0.2], [258, 0.58], [265, 0.15], [271, 0.5], [277, 0.28], [281, 0.52],
+    [286, 0.2], [289, 1], [293, 0.85], [297, 0.15], [301, 0.52], [306, 0.3], [311, 0.4],
+    [316, 0.16], [321, 0.34], [327, 0.2], [333, 0.28], [340, 0.3], [346, 0.2], [352, 0.1], [360, 0.04],
+  ];
+  // Convierte la curva a coordenadas SVG (el eje Y crece hacia abajo; alto útil 70 sobre 80)
+  const linePath = "M " + clicksCurve.map(([x, f]) => `${x} ${(76 - f * 68).toFixed(1)}`).join(" L ");
+  // El área rellena cierra la línea por la base para pintar el degradado
+  const areaPath = `${linePath} L 360 80 L 0 80 Z`;
 
   // Stack tools
   const techStack = [
@@ -67,8 +70,8 @@ export const BentoGrid = () => {
               <div className="text-[10px] sm:text-xs text-zinc-500 uppercase font-medium">Presupuesto Controlado</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">+500</div>
-              <div className="text-[10px] sm:text-xs text-zinc-500 uppercase font-medium">Usuarios Reales/Mes</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">5.4K</div>
+              <div className="text-[10px] sm:text-xs text-zinc-500 uppercase font-medium">Clics en Google (12 m)</div>
             </div>
           </div>
         </motion.div>
@@ -97,7 +100,7 @@ export const BentoGrid = () => {
             <div className="text-xs text-zinc-500 font-semibold uppercase tracking-wider flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5" /> Ubicación
             </div>
-            <div className="text-lg font-bold text-white font-heading">Bogotá, Colombia</div>
+            <div className="text-lg font-bold text-white font-heading">Cali, Colombia</div>
             <p className="text-xs text-zinc-400 flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-brand-secondary" /> UTC-5 (Trabajo Remoto & Presencial)
             </p>
@@ -122,26 +125,19 @@ export const BentoGrid = () => {
                 <h4 className="text-lg font-bold text-white font-heading">buscadorsecop.com en Search Console</h4>
               </div>
               <span className="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg text-zinc-400 font-medium">
-                Últimos 3 meses
+                Últimos 12 meses
               </span>
             </div>
 
-            {/* Interactive Grid Metrics */}
+            {/* Métricas reales de Search Console (una tarjeta por métrica) */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 my-4">
-              {(Object.keys(metrics) as Array<keyof typeof metrics>).map((key) => (
-                <button
-                  key={key}
-                  onClick={() => setActiveMetric(key)}
-                  className={`p-3 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
-                    activeMetric === key 
-                      ? 'bg-white/5 border-brand-primary/40 shadow-[0_0_15px_-5px_rgba(6,182,212,0.3)]' 
-                      : 'bg-transparent border-white/5 hover:bg-white/5 hover:border-white/10'
-                  }`}
-                >
-                  <div className="text-xs text-zinc-500 font-medium truncate">{metrics[key].label}</div>
-                  <div className={`text-xl font-bold font-heading mt-1 ${metrics[key].color}`}>{metrics[key].val}</div>
-                  <div className="text-[9px] text-zinc-400 mt-0.5 font-mono">{metrics[key].pct}</div>
-                </button>
+              {/* Recorre las 4 métricas para pintar cada tarjeta */}
+              {metrics.map((m) => (
+                <div key={m.label} className="p-3 rounded-2xl border border-white/5 bg-white/[0.02] text-left">
+                  <div className="text-xs text-zinc-500 font-medium truncate">{m.label}</div>
+                  <div className={`text-xl font-bold font-heading mt-1 ${m.color}`}>{m.val}</div>
+                  <div className="text-[9px] text-zinc-500 mt-0.5 font-mono">{m.note}</div>
+                </div>
               ))}
             </div>
           </div>
@@ -160,28 +156,31 @@ export const BentoGrid = () => {
               <line x1="0" y1="40" x2="360" y2="40" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
               <line x1="0" y1="60" x2="360" y2="60" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
               
-              {/* Smooth Area Line */}
-              <motion.path 
-                key={activeMetric}
-                initial={{ d: "M 0 70 L 360 70 L 360 80 L 0 80 Z" }}
-                animate={{ d: graphPaths[activeMetric] }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                fill="url(#chartGradient)" 
+              {/* Área bajo la curva real de clics (aparece con fundido) */}
+              <motion.path
+                d={areaPath}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                fill="url(#chartGradient)"
               />
-              
-              {/* Smooth Stroke Line */}
-              <motion.path 
-                key={`${activeMetric}-stroke`}
-                initial={{ d: "M 0 70 L 360 70" }}
-                animate={{ d: graphPaths[activeMetric].split(" L ")[0] }} // get only path line
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                fill="none" 
-                stroke="#06b6d4" 
-                strokeWidth="2.5" 
+              {/* Línea de la curva: se dibuja de izquierda a derecha con pathLength */}
+              <motion.path
+                d={linePath}
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.6, ease: "easeOut" }}
+                fill="none"
+                stroke="#06b6d4"
+                strokeWidth="2"
+                strokeLinejoin="round"
                 strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
               />
             </svg>
-            <div className="absolute bottom-2 right-3 text-[9px] font-mono text-zinc-500">Logro: 300+ Clics/28d (9 de Mayo)</div>
+            <div className="absolute top-2 left-3 text-[9px] font-mono text-zinc-500">Clics diarios · feb–oct 2026 · pico el 17 de agosto</div>
           </div>
         </motion.div>
 
@@ -274,7 +273,7 @@ export const BentoGrid = () => {
           
           <div className="text-[10px] text-zinc-500 font-mono flex items-center justify-between mt-3 pt-3 border-t border-white/5">
             <span>SQL / Python BI</span>
-            <span>100% Efectivo</span>
+            <span>Power BI</span>
           </div>
         </motion.div>
 
