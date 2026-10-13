@@ -29,8 +29,8 @@ export const Experience = () => {
       year: "2018 - Presente",
       title: "Especialista en BI, Big Data & Gestión Contractual",
       subtitle: "Alcaldía de Cali · Departamento Administrativo de Hacienda (UAG)",
-      description: "Estructuración de procesos de contratación pública: Plan Anual de Adquisiciones, estudios previos y del sector, pliegos, matrices de riesgo y seguimiento físico-financiero. Desarrollo de UAG Control para el control presupuestal de contratos, con tableros en Power BI y flujos ETL a SQL Server.",
-      skills: ["SECOP II / CCE", "Estudios del Sector", "Matrices de Riesgo", "Power BI", "ETL & SQL Server"],
+      description: "Analista financiero del equipo estructurador de procesos de licitación y contratación: presupuesto oficial, estudios de mercado y del sector, indicadores y verificación de capacidad financiera de proponentes, y revisión de coherencia económica entre procesos. Desarrollo de UAG Control para el control financiero de contratos, con tableros en Power BI y flujos ETL a SQL Server.",
+      skills: ["Presupuesto Oficial", "Estudios de Mercado", "Capacidad Financiera", "SECOP II / CCE", "Power BI & SQL Server"],
       type: "hybrid",
       color: "border-brand-secondary/50 text-brand-secondary bg-brand-secondary/10",
       icon: <LineChart className="w-5 h-5" />
