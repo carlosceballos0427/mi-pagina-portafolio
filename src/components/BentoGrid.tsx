@@ -59,8 +59,8 @@ export const BentoGrid = () => {
           
           <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/5 mt-6">
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">03+</div>
-              <div className="text-[10px] sm:text-xs text-zinc-500 uppercase font-medium">Años de Exp.</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">03</div>
+              <div className="text-[10px] sm:text-xs text-zinc-500 uppercase font-medium">Títulos Académicos</div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">+10.5B</div>

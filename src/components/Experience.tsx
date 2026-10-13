@@ -26,21 +26,21 @@ export const Experience = () => {
       icon: <Sparkles className="w-5 h-5" />
     },
     {
-      year: "2023 - 2024",
-      title: "Especialista en BI, Big Data & ERPs",
-      subtitle: "Unidad Administrativa de Gestión (UAG) / Consultorías",
-      description: "Desarrollo del sistema UAG Control para el control presupuestal y de pagos contractuales en red local, con tableros ejecutivos interactivos. Modelado de bases de datos relacionales, estructuración de flujos ETL (Extracción, Transformación y Carga) de datos, y reportería comercial automatizada.",
-      skills: ["Power BI", "Modelado SQL", "ETL Pipelines", "Excel Avanzado & Macros"],
+      year: "2018 - Presente",
+      title: "Especialista en BI, Big Data & Gestión Contractual",
+      subtitle: "Alcaldía de Cali · Departamento Administrativo de Hacienda (UAG)",
+      description: "Estructuración de procesos de contratación pública: Plan Anual de Adquisiciones, estudios previos y del sector, pliegos, matrices de riesgo y seguimiento físico-financiero. Desarrollo de UAG Control para el control presupuestal de contratos, con tableros en Power BI y flujos ETL a SQL Server.",
+      skills: ["SECOP II / CCE", "Estudios del Sector", "Matrices de Riesgo", "Power BI", "ETL & SQL Server"],
       type: "hybrid",
       color: "border-brand-secondary/50 text-brand-secondary bg-brand-secondary/10",
       icon: <LineChart className="w-5 h-5" />
     },
     {
-      year: "2018 - 2022",
-      title: "Ingeniería Industrial & Optimización",
-      subtitle: "Formación Universitaria y Proyectos Operativos",
-      description: "Especialización en optimización de operaciones, gestión de presupuestos y control de procesos operacionales. Esta sólida formación científica e industrial sentó las bases metodológicas y analíticas para estructurar sistemas de software de alta eficiencia.",
-      skills: ["Modelado Operativo", "Investigación de Operaciones", "Gestión Financiera", "Estadística Aplicada"],
+      year: "Formación",
+      title: "Ingeniería Industrial y dos Especializaciones",
+      subtitle: "Politécnico Grancolombiano · IEP (España) · Asturias",
+      description: "Ingeniero Industrial con Especialización en Business Intelligence y Big Data (IEP, España) y en Inteligencia de Negocios (Asturias Corporación Universitaria). Base metodológica para optimizar operaciones y sustentar decisiones con datos.",
+      skills: ["Optimización de Operaciones", "Gestión Financiera", "Business Intelligence", "Big Data"],
       type: "academic",
       color: "border-brand-tertiary/50 text-brand-tertiary bg-brand-tertiary/10",
       icon: <GraduationCap className="w-5 h-5" />
